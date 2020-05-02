@@ -54,7 +54,7 @@ const operate = async () => {
         let writeStream;
 
         while (condition) {
-            const fileName = `records_${fileNumberIndex}.ndjson`;
+            const fileName = `records_${fileNumberIndex}_A.ndjson`;
             const filePath = `files/${fileName}`;
 
             if (!isWritableStreamPresent) {
@@ -62,7 +62,15 @@ const operate = async () => {
                 isWritableStreamPresent = true;
             }
 
-            const dataSample = await collection.find({}).sort({ creationDate: 1 }).limit(200).toArray();
+            const dataSample = await collection.find({
+                categoryId: {
+                    $nin: [
+                        '571a2884cca9841545676789',
+                        '571778d11cbfb07f7a4b67dd',
+                        '573eb837b2f1dbd356a23364'
+                    ]
+                }
+            }).sort({ creationDate: 1 }).limit(200).toArray();
 
             const docIds = [];
             for (const sampleLine of dataSample) {
@@ -141,9 +149,9 @@ const compareDates = (timeStamp1, timeStamp2) => {
 const logger = winston.createLogger({
     level: 'info',
     transports: [
-      new winston.transports.Console(),
-      new winston.transports.File({ filename: 'logs/mongo-s3.log' })
+        new winston.transports.Console(),
+        new winston.transports.File({ filename: 'logs/mongo-s3.log' })
     ]
-  });
+});
 
 operate();
