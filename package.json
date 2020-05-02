@@ -1,0 +1,31 @@
+{
+  "name": "mongo-s3",
+  "version": "1.0.0",
+  "description": "A script to move data from mongo to S3 bucket.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manasnilarout/mongo-s3.git"
+  },
+  "keywords": [
+    "mongo",
+    "S3",
+    "AWS",
+    "S3",
+    "mongo",
+    "db",
+    "mongodb"
+  ],
+  "author": "Manas Ranjan Nilorout",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manasnilarout/mongo-s3/issues"
+  },
+  "homepage": "https://github.com/manasnilarout/mongo-s3#readme",
+  "dependencies": {
+    "mongodb": "^3.5.7"
+  }
+}
