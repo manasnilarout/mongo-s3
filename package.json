@@ -26,6 +26,9 @@
   },
   "homepage": "https://github.com/manasnilarout/mongo-s3#readme",
   "dependencies": {
-    "mongodb": "^3.5.7"
+    "aws-sdk": "^2.668.0",
+    "dotenv": "^8.2.0",
+    "mongodb": "^3.5.7",
+    "winston": "^3.2.1"
   }
 }
