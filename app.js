@@ -21,7 +21,7 @@ const s3Params = { Bucket: process.env.S3_BUCKET_NAME };
 
 const oldDate = new Date('2020-03-03T00:00:00.824Z').getTime();
 
-const FileRecordThreshold = 1000;
+const FileRecordThreshold = 2000;
 
 const operate = async () => {
     try {
@@ -54,7 +54,7 @@ const operate = async () => {
         let writeStream;
 
         while (condition) {
-            const fileName = `records_${fileNumberIndex}_E.ndjson`;
+            const fileName = `records_${fileNumberIndex}.ndjson`;
             const filePath = `files/${fileName}`;
 
             if (!isWritableStreamPresent) {
@@ -62,7 +62,7 @@ const operate = async () => {
                 isWritableStreamPresent = true;
             }
 
-            const dataSample = await collection.find({}).sort({ creationDate: 1 }).limit(100).toArray();
+            const dataSample = await collection.find({}).sort({ creationDate: 1 }).limit(200).toArray();
 
             const docIds = [];
             for (const sampleLine of dataSample) {
