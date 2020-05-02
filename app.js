@@ -67,7 +67,8 @@ const operate = async () => {
                     $nin: [
                         '571a2884cca9841545676789',
                         '571778d11cbfb07f7a4b67dd',
-                        '573eb837b2f1dbd356a23364'
+                        '573eb837b2f1dbd356a23364',
+                        '573eb936b2f1dbd356a23367'
                     ]
                 }
             }).sort({ creationDate: 1 }).limit(200).toArray();
